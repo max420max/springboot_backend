@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app:
+    image: localhost:5000/webapp
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: "jdbc:mysql://db:3306/users"
+      DATABASE_USERNAME: "user"
+      DATABASE_PASSWORD: "pass"
+    networks:
+      - springmysql-net
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    networks:
+      - springmysql-net
+    environment:
+      MYSQL_ROOT_PASSWORD: "root_password"
+      MYSQL_DATABASE: "users"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "pass"
+
+networks:
+  springmysql-net:
