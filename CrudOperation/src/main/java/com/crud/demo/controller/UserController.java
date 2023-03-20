@@ -14,7 +14,8 @@ import java.util.List;
 * http://127.0.0.1:5500/ This Url will be FRONTEND URL
 * */
 
-@CrossOrigin(origins = "http://127.0.0.1:5500/")
+//@CrossOrigin(origins = "http://127.0.0.1:5500/")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/rest")
 public class UserController {
